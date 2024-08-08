@@ -1,4 +1,4 @@
-// Sample JavaScript code to make a GET request to the rock-paper-scissors API
+// Sample JavaScript code to make a GET request to the rock-paper-scissors API with additional headers
 
 const fetchGameResult = async () => {
     const apiUrl = 'https://api.toys/api/rock_paper_scissors';
@@ -7,8 +7,12 @@ const fetchGameResult = async () => {
         const response = await fetch(apiUrl, {
             method: 'GET', // Assuming it's a GET request
             headers: {
-                'Content-Type': 'application/json',
-                // Include any required authorization headers here
+                'Content-Type': 'application/json', // Specifies the format of the request body (if any)
+                'Authorization': 'Bearer YOUR_ACCESS_TOKEN_HERE', // Replace with your actual token
+                'User-Agent': 'YourAppName/1.0', // A custom User-Agent string to identify your app
+                'Accept': 'application/json', // Specifies the format you expect the response in
+                'Cache-Control': 'no-cache', // Prevents caching of the request/response
+                'Accept-Language': 'en-US,en;q=0.9', // Specifies the preferred languages for the response
             }
         });
 
