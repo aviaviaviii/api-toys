@@ -1,0 +1,26 @@
+// Sample JavaScript code to make a GET request to the rock-paper-scissors API
+
+const fetchGameResult = async () => {
+    const apiUrl = 'https://api.toys/api/rock_paper_scissors';
+    
+    try {
+        const response = await fetch(apiUrl, {
+            method: 'GET', // Assuming it's a GET request
+            headers: {
+                'Content-Type': 'application/json',
+                // Include any required authorization headers here
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('Game result:', data);
+    } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+    }
+};
+
+fetchGameResult();
